@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
+import 'package:mynewproject/custom%20widgets/customButton.dart';
+import 'package:mynewproject/screens/grocery_home.dart';
 import 'package:mynewproject/screens/login.dart';
-import 'package:mynewproject/widgets/customButton.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,17 +30,16 @@ class _HomePageState extends State<HomePage> {
           color: MyColors.blueL,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Column(
                 //header ka sara text or navigations lines yahan use ki
                 children: [
                   Container(
-                    width: 25,
+                    width: 250,
                     height: 203,
                     alignment: Alignment(0.0, 0.5),
                     child: RichText(
-                      //text plus iame ko aik line me rakhne k liye Richtext use kia
                       text: TextSpan(children: [
                         TextSpan(
                             text:
@@ -58,7 +58,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Container(
-                    // small para ka text
                     width: 272,
                     child: Text(
                       "There's something for everyone to enjoy with Sweet Shop Favourites Screen ${index + 1}",
@@ -69,7 +68,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Container(
-                    // lines navigations
                     margin: EdgeInsets.only(top: 30),
                     width: 272,
                     child: Row(
@@ -78,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                             onTap: () => {
                                   pageViewController.previousPage(
                                       duration: const Duration(seconds: 1),
-                                      curve: Curves.easeInQuint)
+                                      curve: Curves.bounceOut)
                                 },
                             child: Image.asset(
                               "images/Line2.png",
@@ -90,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                             onTap: () => {
                                   pageViewController.nextPage(
                                       duration: const Duration(seconds: 1),
-                                      curve: Curves.easeInQuint)
+                                      curve: Curves.bounceOut)
                                 },
                             child: Image.asset(
                               "images/Line1.png",
@@ -120,21 +118,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-
-              // center image yahan use kia
               Container(
                 width: 272,
                 child: Image.network("images/ImageIcon.png"),
               ),
-              
-              // Get Started ka button isme dala
               Container(
                   width: 272,
                   child: CustomButton(
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return LoginScreen();
+                        return GroceryHome();
                       }));
                     },
                     buttonBackground: MyColors.black1,
