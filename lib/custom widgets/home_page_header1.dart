@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
 
-class GroceryHome extends StatelessWidget {
-  const GroceryHome({super.key});
+class HomePageHeader1 extends StatefulWidget {
+  const HomePageHeader1({super.key});
 
   @override
+  State<HomePageHeader1> createState() => _HomePageHeader1State();
+}
+
+class _HomePageHeader1State extends State<HomePageHeader1> {
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: Column(
-        children: [
-          Container(
+    return Container(
             color: MyColors.blueL,
             height: 250,
             padding:
@@ -112,10 +113,6 @@ class GroceryHome extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          // Expanded(child: child)
-        ],
-      ),
-    ));
+          );
   }
 }

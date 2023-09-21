@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
-import 'package:mynewproject/custom%20widgets/customButton.dart';
-import 'package:mynewproject/screens/grocery_home.dart';
+import 'package:mynewproject/custom%20widgets/custom_button.dart';
+import 'package:mynewproject/screens/grocery_home_view.dart';
 import 'package:mynewproject/screens/login.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class GetStartedView extends StatefulWidget {
+  const GetStartedView({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<GetStartedView> createState() => _GetStartedViewState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _GetStartedViewState extends State<GetStartedView> {
   List pageNumber = ["one", "two"];
 
   PageController pageViewController = PageController(initialPage: 0);

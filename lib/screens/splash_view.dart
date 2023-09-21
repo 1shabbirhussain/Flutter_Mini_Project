@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
-import 'package:mynewproject/screens/home_view.dart';
+import 'package:mynewproject/screens/get_started_view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(milliseconds: 500), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => GetStartedView()),
       );
     });
   }
