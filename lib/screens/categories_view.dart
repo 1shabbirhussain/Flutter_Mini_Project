@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mynewproject/Assets/colors.dart';
 import 'package:mynewproject/custom%20widgets/card_category.dart';
 import 'package:mynewproject/custom%20widgets/header_categories.dart';
 
