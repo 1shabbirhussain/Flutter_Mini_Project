@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
 import 'package:mynewproject/custom%20widgets/home_page_header1.dart';
-import 'package:mynewproject/custom%20widgets/landscape_card.dart';
-import 'package:mynewproject/custom%20widgets/portrait_card.dart';
+import 'package:mynewproject/custom%20widgets/card_landscape.dart';
+import 'package:mynewproject/custom%20widgets/card_portrait.dart';
 
-class GroceryHome extends StatelessWidget {
-  const GroceryHome({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +30,13 @@ class GroceryHome extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   // Text
-                  Container(
+                 Container(
                       margin: EdgeInsetsDirectional.symmetric(horizontal: 20),
-                      child: Text(
+                      child: const Text(
                         "Recommended",
                         style: TextStyle(
                             fontSize: 30,

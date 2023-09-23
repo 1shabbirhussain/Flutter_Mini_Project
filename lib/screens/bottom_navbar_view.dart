@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mynewproject/screens/grocery_home_view.dart';
+import 'package:mynewproject/screens/categories_view.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
+import 'package:mynewproject/screens/home_view.dart';
 
 class NavbarView extends StatefulWidget {
   const NavbarView({Key? key}) : super(key: key);
@@ -35,15 +36,8 @@ class _NavbarViewState extends State<NavbarView> {
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
           children: <Widget>[
-            GroceryHome(),
-            Container(
-              alignment: Alignment.center,
-              child: Icon(
-                Icons.favorite_rounded,
-                size: 56,
-                color: Colors.red[400],
-              ),
-            ),
+            Home(),
+            Categories(),
             Container(
               alignment: Alignment.center,
               child: Icon(
@@ -75,19 +69,19 @@ class _NavbarViewState extends State<NavbarView> {
           selectedIndex: selectedIndex,
           barItems: <BarItem>[
             BarItem(
-              filledIcon: Icons.bookmark_rounded,
-              outlinedIcon: Icons.bookmark_border_rounded,
+              filledIcon: Icons.home_sharp,
+              outlinedIcon: Icons.home_outlined,
+            ),
+            BarItem(
+              filledIcon: Icons.category_rounded,
+              outlinedIcon: Icons.category_outlined,
             ),
             BarItem(
                 filledIcon: Icons.favorite_rounded,
                 outlinedIcon: Icons.favorite_border_rounded),
             BarItem(
-              filledIcon: Icons.email_rounded,
-              outlinedIcon: Icons.email_outlined,
-            ),
-            BarItem(
-              filledIcon: Icons.folder_rounded,
-              outlinedIcon: Icons.folder_outlined,
+              filledIcon: Icons.more_vert_rounded,
+              outlinedIcon: Icons.more_vert_outlined,
             ),
           ],
         ),
