@@ -31,7 +31,7 @@ class _CategoriesState extends State<Categories> {
           HeaderCategories(),
           Expanded(
               child: SingleChildScrollView(
-                  padding: EdgeInsetsDirectional.symmetric(
+                  padding: const EdgeInsetsDirectional.symmetric(
                       horizontal: 20, vertical: 20),
                   child: GridView.builder(
                     shrinkWrap: true,
@@ -43,7 +43,8 @@ class _CategoriesState extends State<Categories> {
                     ),
                     itemCount: 10,
                     itemBuilder: (context, index) {
-                      return CardCategory();
+                      return 
+                      CardCategory();
                     },
                   )))
         ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
+import 'package:mynewproject/custom%20widgets/bottom_navbar_view.dart';
 import 'package:mynewproject/custom%20widgets/custom_button.dart';
 import 'package:mynewproject/screens/home_view.dart';
 
@@ -127,7 +128,7 @@ class _GetStartedViewState extends State<GetStartedView> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return Home();
+                        return NavbarView();
                       }));
                     },
                     buttonBackground: MyColors.black1,

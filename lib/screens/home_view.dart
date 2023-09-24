@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
-import 'package:mynewproject/custom%20widgets/home_page_header1.dart';
+import 'package:mynewproject/custom%20widgets/header_home.dart';
 import 'package:mynewproject/custom%20widgets/card_landscape.dart';
 import 'package:mynewproject/custom%20widgets/card_portrait.dart';
 
@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
                     height: 25,
                   ),
                   // Text
-                 Container(
+                  Container(
                       margin: EdgeInsetsDirectional.symmetric(horizontal: 20),
                       child: const Text(
                         "Recommended",

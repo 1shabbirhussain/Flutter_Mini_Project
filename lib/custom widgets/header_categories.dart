@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
+import 'package:badges/badges.dart' as badges;
 
 class HeaderCategories extends StatefulWidget {
   const HeaderCategories({super.key});
@@ -29,10 +30,13 @@ class _HeaderCategoriesState extends State<HeaderCategories> {
                     fontWeight: FontWeight.w600,
                     color: MyColors.black1),
               ),
-              Icon(
-                Icons.add_shopping_cart,
-                color: MyColors.black1,
-                weight: 16,
+              badges.Badge(
+                badgeContent: Text('3'),
+                child: Icon(
+                  Icons.add_shopping_cart,
+                  color: MyColors.black1,
+                  weight: 16,
+                ),
               )
             ],
           ),
