@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mynewproject/Assets/dummy_data.dart';
 import 'package:mynewproject/custom%20widgets/card_category.dart';
 import 'package:mynewproject/custom%20widgets/header_categories.dart';
 
@@ -41,10 +42,11 @@ class _CategoriesState extends State<Categories> {
                       mainAxisSpacing: 20,
                       childAspectRatio: 154 / 164,
                     ),
-                    itemCount: 10,
+                    itemCount: dummyData.length,
                     itemBuilder: (context, index) {
-                      return 
-                      CardCategory();
+                      return  CardCategory(
+                        index: index,
+                      );
                     },
                   )))
         ],

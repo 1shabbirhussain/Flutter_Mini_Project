@@ -4,6 +4,7 @@ List subCategoryData = [
     "subCategoryOrigin": "Fresh From Sea",
     "PerKg": "36/kg",
     "subCategoryImage": "images/ImageIcon.png"
+    
   },
   {
     "subCategoryName": "Halal Meats",

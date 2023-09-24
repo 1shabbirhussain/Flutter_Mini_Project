@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mynewproject/firebase_options.dart';
-import 'package:mynewproject/screens/categories2_view.dart';
+import 'package:mynewproject/screens/sub_categories_view.dart';
 import 'package:mynewproject/screens/home_view.dart';
 import 'package:mynewproject/custom%20widgets/bottom_navbar_view.dart';
 import 'package:mynewproject/screens/signup.dart';

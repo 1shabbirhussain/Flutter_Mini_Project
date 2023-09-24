@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
-import 'package:mynewproject/Assets/subCategoryData.dart';
+import 'package:mynewproject/Assets/dummy_data.dart';
 import 'package:mynewproject/custom%20widgets/card_sub_category.dart';
 import 'package:mynewproject/custom%20widgets/header_categories.dart';
 import 'package:mynewproject/screens/home_view.dart';
-
-
 
 class Categories2 extends StatefulWidget {
   const Categories2({super.key});
@@ -91,26 +89,22 @@ class _Categories2State extends State<Categories2> {
               ),
             ),
           ),
-
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: ListView.builder(
-                  itemCount: subCategoryData.length,
+                  itemCount: dummyData.length,
                   itemBuilder: (context, index) {
                     return SubCategoryCards(
-                      subCategoryName: subCategoryData[index]
-                          ["subCategoryName"],
-                      subCategoryOrigin: subCategoryData[index]
-                          ["subCategoryOrigin"],
-                      PerKg: subCategoryData[index]["PerKg"],
-                      subCategoryImage: subCategoryData[index]
-                          ["subCategoryImage"],
+                      subCategoryName: dummyData[index]["subCategories"][0]
+                          ['subCategoryName'],
+                      category: dummyData[index]["category"],
+                      startingPrice: dummyData[index]["subCategories"][0]
+                          ['startingPrice'],
+                      subCategoryImage: "images/ImageIcon.png",
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Home()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Home()));
                       },
                     );
                   }),

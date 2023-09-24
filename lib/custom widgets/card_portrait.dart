@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
 
 class PortraitCard extends StatelessWidget {
-  const PortraitCard({super.key});
+  final String itemName;
+  final String itemPrice;
+  final String subCategoryName;
+
+  const PortraitCard({
+    super.key,
+    required this.itemName,
+    required this.itemPrice,
+    required this.subCategoryName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +37,14 @@ class PortraitCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Fresh Lemon",
+                  itemName,
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       color: MyColors.black100),
                 ),
                 Text(
-                  "Organic",
+                  subCategoryName,
                   style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
@@ -53,7 +62,7 @@ class PortraitCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Unit",
+                        itemPrice,
                         style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w400,

@@ -3,16 +3,16 @@ import 'package:flutter_svg/svg.dart';
 
 class SubCategoryCards extends StatefulWidget {
   final String subCategoryName;
-  final String subCategoryOrigin;
-  final String PerKg;
+  final String category;
+  final String startingPrice;
   final String subCategoryImage;
   final VoidCallback onTap;
   // final void Function()? onTap; // to navigate on screen sub cat items
   const SubCategoryCards({
     super.key,
     required this.subCategoryName,
-    required this.subCategoryOrigin,
-    required this.PerKg,
+    required this.category,
+    required this.startingPrice,
     required this.subCategoryImage,
     required this.onTap,
   });
@@ -68,7 +68,7 @@ class _SubCategoryCardsState extends State<SubCategoryCards> {
                   SizedBox(
                     height: 10,
                   ),
-                  Text(widget.subCategoryOrigin,
+                  Text(widget.category,
                       style: TextStyle(fontSize: 12)),
                   SizedBox(
                     height: 50,
@@ -80,7 +80,7 @@ class _SubCategoryCardsState extends State<SubCategoryCards> {
                   SizedBox(
                     height: 10,
                   ),
-                  Text(widget.PerKg,
+                  Text(widget.startingPrice,
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
