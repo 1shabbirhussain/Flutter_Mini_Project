@@ -4,6 +4,7 @@ import 'package:mynewproject/Assets/dummy_data.dart';
 import 'package:mynewproject/custom%20widgets/card_sub_category.dart';
 import 'package:mynewproject/custom%20widgets/header_categories.dart';
 import 'package:mynewproject/screens/home_view.dart';
+import 'package:mynewproject/screens/items_view.dart';
 
 class Categories2 extends StatefulWidget {
   const Categories2({super.key});
@@ -103,8 +104,10 @@ class _Categories2State extends State<Categories2> {
                           ['startingPrice'],
                       subCategoryImage: "images/ImageIcon.png",
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Home()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ItemsView()));
                       },
                     );
                   }),

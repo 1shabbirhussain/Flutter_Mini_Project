@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
 import 'package:mynewproject/Assets/dummy_data.dart';
+import 'package:mynewproject/screens/items_view.dart';
 import 'package:mynewproject/screens/sub_categories_view.dart';
 
 class CardCategory extends StatelessWidget {
@@ -15,7 +16,7 @@ class CardCategory extends StatelessWidget {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return Categories2();
+            return ItemsView();
           },
         ));
       },

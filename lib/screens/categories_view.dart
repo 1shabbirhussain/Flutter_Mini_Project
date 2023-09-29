@@ -44,7 +44,7 @@ class _CategoriesState extends State<Categories> {
                     ),
                     itemCount: dummyData.length,
                     itemBuilder: (context, index) {
-                      return  CardCategory(
+                      return CardCategory(
                         index: index,
                       );
                     },
