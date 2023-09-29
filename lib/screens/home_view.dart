@@ -132,17 +132,24 @@ class Home extends StatelessWidget {
                     ),
                   ),
 
+                  const SizedBox(
+                    height: 25,
+                  ),
+
                   // Container(
                   //   height: 194,
                   //   child: ListView.builder(
                   //     scrollDirection: Axis.horizontal,
-                  //     itemCount: 10,
+                  //     itemCount: 5,
                   //     itemBuilder: (context, index) {
-                  //       // return PortraitCard(
-                  //       //   itemName: null,
-                  //       //   itemPrice: null,
-                  //       //   subCategoryName: null,
-                  //       // );
+                  //       return PortraitCard(
+                  //         itemName: dummyData[index]["subCategories"][0]
+                  //             ["items"][0]["itemName"],
+                  //         itemPrice: dummyData[index]["subCategories"][0]
+                  //             ["items"][0]["itemPrice"],
+                  //         subCategoryName: dummyData[index]["subCategories"][0]
+                  //             ["subCategoryName"],
+                  //       );
                   //     },
                   //   ),
                   // ),

@@ -62,19 +62,19 @@ class PortraitCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        itemPrice,
-                        style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w400,
-                            color: MyColors.black60),
-                      ),
-                      Text(
-                        "\$12",
+                        "\$ $itemPrice",
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                             color: MyColors.black60),
                       ),
+                      // Text(
+                      //   "\$12",
+                      //   style: TextStyle(
+                      //       fontSize: 14,
+                      //       fontWeight: FontWeight.w600,
+                      //       color: MyColors.black60),
+                      // ),
                       Icon(
                         Icons.add_circle,
                         color: MyColors.blueD,
