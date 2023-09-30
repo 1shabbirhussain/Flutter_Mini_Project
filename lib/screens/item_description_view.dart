@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/cart_items.dart';
 import 'package:mynewproject/Assets/colors.dart';
+import 'package:mynewproject/custom%20widgets/custom_button.dart';
 import 'package:mynewproject/screens/cart_view.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';
@@ -11,12 +12,14 @@ class ItemDescription extends StatefulWidget {
   final itemname;
   final itemprice;
   final itemdesc;
+  final isWishlist;
   const ItemDescription({
     super.key,
     required this.image,
     required this.itemname,
     required this.itemprice,
     required this.itemdesc,
+    required this.isWishlist,
   });
 
   @override
@@ -24,6 +27,40 @@ class ItemDescription extends StatefulWidget {
 }
 
 class _ItemDescriptionState extends State<ItemDescription> {
+  @override
+  void initState() {
+    super.initState();
+    // Check if the item is in the wishlist and update the isWishlist variable accordingly
+    isWishlist =
+        wishlistItems.any((item) => item['itemName'] == widget.itemname);
+  }
+
+  bool isWishlist = false; // Initially not in wishlist
+
+  // Function to toggle the wishlist item
+  void toggleWishlist() {
+    setState(() {
+      isWishlist = !isWishlist; // Toggle the wishlist state
+
+      Map<String, dynamic> wishlistItem = {
+        'itemName': widget.itemname,
+        'itemPrice': widget.itemprice,
+        'subCategoryName': widget.itemdesc,
+        'itemImage': widget.image,
+        "isWishlist": isWishlist,
+      };
+
+      if (isWishlist) {
+        wishlistItems.add(wishlistItem); // Add to wishlist when it turns red
+      } else {
+        wishlistItems.removeWhere((item) =>
+            item['itemName'] ==
+            widget.itemname); // Remove from wishlist when it turns grey
+      }
+      print(wishlistItems);
+    });
+  }
+
   // ---------------------------carousel images list------------------------
   static const List<String> sampleImages = [
     "images/ImageIcon.png",
@@ -31,6 +68,7 @@ class _ItemDescriptionState extends State<ItemDescription> {
     "images/ImageIcon.png"
   ];
   // ---------------------------carousel images list end------------------------
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -90,6 +128,7 @@ class _ItemDescriptionState extends State<ItemDescription> {
                   sliderHeight: 200,
                   sliderWidth: double.infinity,
                   imageFitMode: BoxFit.contain,
+                  expandedImageFitMode: BoxFit.contain,
                   currentItemShadow: [
                     BoxShadow(
                       color: MyColors.black1,
@@ -105,13 +144,28 @@ class _ItemDescriptionState extends State<ItemDescription> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Best choice",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: MyColors.black100),
+                    // ---------------------------------- add to wish list icon row START------------
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Best choice",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: MyColors.black100,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: toggleWishlist,
+                          icon: Icon(
+                            Icons.favorite,
+                            color: isWishlist ? Colors.red : MyColors.black45,
+                          ),
+                        ),
+                      ],
                     ),
+                    // ---------------------------------- add to wish list icon row END------------
 
                     Text(
                       widget.itemname,
@@ -126,7 +180,7 @@ class _ItemDescriptionState extends State<ItemDescription> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "\$${widget.itemprice} per KG",
+                          "\$ ${widget.itemprice} per kg",
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
@@ -179,20 +233,83 @@ class _ItemDescriptionState extends State<ItemDescription> {
                     ),
                     // --------------------------rating package END-----------------------
                     SizedBox(height: 10),
-                    Text(
-                      "Details",
-                      style: TextStyle(
-                          color: MyColors.black100,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600),
+                    // ---------------------------buttons START------------------------------
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // ----------------------------add to cart button START----------------------
+                        CustomButton(
+                          onPressed: () {
+                            setState(() {
+                              // Create a map representing the item to be added to the cart
+                              Map<String, dynamic> cartItem = {
+                                'itemName': widget.itemname,
+                                'itemPrice': widget.itemprice,
+                                'subCategoryName': widget.itemdesc,
+                                'itemImage': widget.image,
+                              };
+
+                              // Add the cart item to the cartItems list
+                              cartItems.add(cartItem);
+
+                              // Optionally, you can show a snackbar or perform any other action to confirm that the item was added to the cart
+                              final snackBar = SnackBar(
+                                content: Text(
+                                    '${widget.itemname} added to the cart'),
+                                duration: Duration(seconds: 2),
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+
+                              cartItems.length;
+                            });
+                          },
+                          buttonBackground: MyColors.black1,
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          width: 150,
+                          height: 56,
+                          textWidget: Text("Add To Cart",
+                              style: TextStyle(color: MyColors.blueD)),
+                        ),
+                        // ----------------------------add to cart button END-----------------------------
+                        CustomButton(
+                            onPressed: () {},
+                            buttonBackground: MyColors.blueD,
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            width: 150,
+                            height: 56,
+                            textWidget: Text("Buy Now")),
+                      ],
                     ),
-                    Text(
-                      "This is the descruption of my product and product lie under the sub category ${widget.itemdesc}",
-                      style: TextStyle(
-                          color: MyColors.black60,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400),
-                    )
+
+                    // ---------------------------buttons END------------------------------
+                    SizedBox(height: 10),
+                    ExpansionTile(
+                      initiallyExpanded: true,
+                      leading: Icon(Icons.description_outlined),
+                      title: Text("Details"),
+                      children: [
+                        Text(
+                            "This is the descruption of my product and product lie under the sub category ${widget.itemdesc}")
+                      ],
+                    ),
+
+                    ExpansionTile(
+                      leading: Icon(Icons.fact_check_outlined),
+                      title: Text("Nutritional facts"),
+                      children: [
+                        Text(
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec ligula vel velit posuere fermentum. Etiam at erat eget metus laoreet cursus. Vivamus tincidunt quam eu tellus feugiat, in euismod libero luctus")
+                      ],
+                    ),
+                    ExpansionTile(
+                      leading: Icon(Icons.reviews_outlined),
+                      title: Text("Reviews"),
+                      children: [
+                        Text(
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec ligula vel velit posuere fermentum. Etiam at erat eget metus laoreet cursus. Vivamus tincidunt quam eu tellus feugiat, in euismod libero luctus")
+                      ],
+                    ),
                   ],
                 ),
               ),

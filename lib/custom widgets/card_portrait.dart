@@ -9,6 +9,7 @@ class PortraitCard extends StatefulWidget {
   final String itemPrice;
   final String subCategoryName;
   final String itemImage;
+  final bool isWishlist;
 
   const PortraitCard({
     Key? key,
@@ -16,6 +17,7 @@ class PortraitCard extends StatefulWidget {
     required this.itemPrice,
     required this.subCategoryName,
     required this.itemImage,
+    required this.isWishlist,
   }) : super(key: key);
 
   @override
@@ -43,6 +45,7 @@ class _PortraitCardState extends State<PortraitCard> {
                     itemname: widget.itemName,
                     itemprice: widget.itemPrice,
                     itemdesc: widget.subCategoryName,
+                    isWishlist: widget.isWishlist,
                   );
                 },
               ));
@@ -87,7 +90,7 @@ class _PortraitCardState extends State<PortraitCard> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "\$ ${widget.itemPrice}",
+                        "\$ ${widget.itemPrice}/kg",
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -104,6 +107,7 @@ class _PortraitCardState extends State<PortraitCard> {
                               'itemPrice': widget.itemPrice,
                               'subCategoryName': widget.subCategoryName,
                               'itemImage': widget.itemImage,
+                              "isWishlist": widget.isWishlist
                             };
 
                             // Add the cart item to the cartItems list

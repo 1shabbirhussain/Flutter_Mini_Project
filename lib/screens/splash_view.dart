@@ -10,23 +10,23 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  double _opacity = 1.0; // Initial opacity for the splash screen
+  double _scale = 1.0;
+  double _opacity = 1.0;
 
   @override
   void initState() {
     super.initState();
-    _navigateToHome();
+    _startAnimation();
   }
 
-  _navigateToHome() async {
-    await Future.delayed(Duration(milliseconds: 1500), () {
-      // Start the fade-out animation
+  _startAnimation() async {
+    await Future.delayed(Duration(milliseconds: 1000), () {
       setState(() {
         _opacity = 0.0;
+        _scale = 1.5;
       });
     });
 
-    // After the animation, navigate to the home page
     await Future.delayed(Duration(milliseconds: 500), () {
       Navigator.pushReplacement(
         context,
@@ -37,21 +37,22 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: AnimatedOpacity(
-          opacity: _opacity, // Use the animated opacity
-          duration: Duration(milliseconds: 500), // Animation duration
-          curve: Curves.easeOut, // Animation curve
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [MyColors.blueD, MyColors.blueL],
-              ),
-            ),
-            child: Center(
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [MyColors.blueD, MyColors.blueL],
+          ),
+        ),
+        child: Center(
+          child: AnimatedOpacity(
+            opacity: _opacity,
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeOut,
+            child: Transform.scale(
+              scale: _scale,
               child: Text(
                 "Flutter First Project",
                 style: TextStyle(
@@ -59,6 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
           ),

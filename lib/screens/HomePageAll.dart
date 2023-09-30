@@ -227,10 +227,12 @@ class _HomePageAllState extends State<HomePageAll> {
                                               MaterialPageRoute(
                                             builder: (context) {
                                               return ItemDescription(
-                                                  image: item["itemImage"],
-                                                  itemname: item["itemName"],
-                                                  itemprice: item["itemPrice"],
-                                                  itemdesc: subCategoryName);
+                                                image: item["itemImage"],
+                                                itemname: item["itemName"],
+                                                itemprice: item["itemPrice"],
+                                                itemdesc: subCategoryName,
+                                                isWishlist: item["isWishlist"],
+                                              );
                                             },
                                           ));
                                         },
@@ -284,7 +286,7 @@ class _HomePageAllState extends State<HomePageAll> {
                                                         .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    "\$ ${item["itemPrice"]}",
+                                                    "\$ ${item["itemPrice"]}/kg",
                                                     style: TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
@@ -392,10 +394,12 @@ class _HomePageAllState extends State<HomePageAll> {
                                               MaterialPageRoute(
                                             builder: (context) {
                                               return ItemDescription(
-                                                  image: item["itemImage"],
-                                                  itemname: item["itemName"],
-                                                  itemprice: item["itemPrice"],
-                                                  itemdesc: subCategoryName);
+                                                image: item["itemImage"],
+                                                itemname: item["itemName"],
+                                                itemprice: item["itemPrice"],
+                                                itemdesc: subCategoryName,
+                                                isWishlist: item["isWishlist"],
+                                              );
                                             },
                                           ));
                                         },
@@ -449,7 +453,7 @@ class _HomePageAllState extends State<HomePageAll> {
                                                         .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    "\$ ${item["itemPrice"]}",
+                                                    "\$ ${item["itemPrice"]}/kg",
                                                     style: TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
@@ -457,6 +461,7 @@ class _HomePageAllState extends State<HomePageAll> {
                                                       color: MyColors.black60,
                                                     ),
                                                   ),
+                                                  // ----------------------------add to card plus button START----------------
                                                   InkWell(
                                                     onTap: () {
                                                       setState(() {
@@ -471,6 +476,10 @@ class _HomePageAllState extends State<HomePageAll> {
                                                               subCategoryName,
                                                           'itemImage':
                                                               item["itemImage"],
+                                                          'itemImage':
+                                                              item["itemImage"],
+                                                          'isWishlist': item[
+                                                              "isWishlist"],
                                                         };
 
                                                         // Add the cart item to the cartItems list
@@ -496,6 +505,7 @@ class _HomePageAllState extends State<HomePageAll> {
                                                       size: 24,
                                                     ),
                                                   )
+                                                  // ----------------------------add to card plus button END----------------
                                                 ],
                                               ),
                                             ),

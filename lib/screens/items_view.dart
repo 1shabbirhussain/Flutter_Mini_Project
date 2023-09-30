@@ -58,6 +58,7 @@ class _ItemsViewState extends State<ItemsView>
               'itemName': itemData['itemName'],
               'itemPrice': itemData['itemPrice'],
               'itemImage': itemData['itemImage'],
+              'isWishlist': itemData['isWishlist'],
             };
             allItems.add(newItem);
           }
@@ -78,6 +79,7 @@ class _ItemsViewState extends State<ItemsView>
               'itemName': itemData['itemName'],
               'itemPrice': itemData['itemPrice'],
               'itemImage': itemData['itemImage'],
+              'isWishlist': itemData['isWishlist'],
             };
             itemsToShow.add(newItem);
           }
@@ -105,6 +107,7 @@ class _ItemsViewState extends State<ItemsView>
           itemPrice: itemData['itemPrice'],
           subCategoryName: itemData['subCategoryName'],
           itemImage: itemData['itemImage'],
+          isWishlist: itemData['isWishlist'],
         );
       },
     );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
 import 'package:mynewproject/screens/bottom_navbar_view.dart';
 import 'package:mynewproject/custom%20widgets/custom_button.dart';
-import 'package:mynewproject/screens/home_view.dart';
+import 'package:lottie/lottie.dart';
 
 class GetStartedView extends StatefulWidget {
   const GetStartedView({super.key});
@@ -93,35 +93,15 @@ class _GetStartedViewState extends State<GetStartedView> {
                             child: Image.asset(
                               "images/Line1.png",
                             )),
-                        // IconButton(
-                        //     onPressed: () => {
-                        //           pageViewController.previousPage(
-                        //               duration: const Duration(seconds: 1),
-                        //               curve: Curves.easeInQuint)
-                        //         },
-                        //     icon: const Icon(
-                        //       Icons.remove,
-                        //       color: MyColors.black45,
-                        //     )),
-                        // IconButton(
-                        //     onPressed: () => {
-                        //           pageViewController.nextPage(
-                        //               duration: const Duration(seconds: 1),
-                        //               curve: Curves.easeInOutQuint)
-                        //         },
-                        //     icon: const Icon(
-                        //       Icons.remove,
-                        //       color: MyColors.black20,
-                        //     )),
                       ],
                     ),
                   ),
                 ],
               ),
               Container(
-                width: 272,
-                child: Image.network("images/ImageIcon.png"),
-              ),
+                  width: 272,
+                  child: Lottie.network(
+                      "https://lottie.host/4d8a0880-8d2e-4310-91cc-023991017f20/jwy0sNpLG9.json")),
               Container(
                   width: 272,
                   child: CustomButton(
