@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Firebase%20work/signup.dart';
-import 'package:mynewproject/custom%20widgets/bottom_navbar_view.dart';
+import 'package:mynewproject/screens/bottom_navbar_view.dart';
 import 'package:mynewproject/firebase_options.dart';
+import 'package:mynewproject/screens/HomePageAll.dart';
+import 'package:mynewproject/screens/cart_view.dart';
 import 'package:mynewproject/screens/items_view.dart';
 import 'package:mynewproject/screens/splash_view.dart';
 
@@ -22,8 +24,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: SplashScreen(),
       // home: Home(),
-      // home: NavbarView(),
-      home: ItemsView(),
+      home: NavbarView(),
+      // home: CartView(),
+      // home: ItemsView(),
+      // home: HomePageAll(),
       // home:Categories2() ,
       // home: SignUpScreen(),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mynewproject/Assets/cart_items.dart';
 import 'package:mynewproject/Assets/colors.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:mynewproject/screens/cart_view.dart';
 
 class HeaderCategories extends StatefulWidget {
   const HeaderCategories({super.key});
@@ -30,14 +32,32 @@ class _HeaderCategoriesState extends State<HeaderCategories> {
                     fontWeight: FontWeight.w600,
                     color: MyColors.black1),
               ),
-              badges.Badge(
-                badgeContent: Text('3'),
-                child: Icon(
-                  Icons.add_shopping_cart,
-                  color: MyColors.black1,
-                  weight: 16,
-                ),
-              )
+              // -----------------------------CART BADGE START--------------------
+              InkWell(
+                  onTap: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return CartView();
+                        },
+                      ),
+                    );
+                    setState(() {});
+                  },
+                  child: badges.Badge(
+                    badgeStyle: badges.BadgeStyle(
+                      badgeColor: MyColors.yellowD,
+                      padding: EdgeInsets.all(3),
+                    ),
+                    badgeContent: Text("${cartItems.length}"),
+                    child: Icon(
+                      Icons.add_shopping_cart,
+                      color: MyColors.black1,
+                      size: 20,
+                    ),
+                  )),
+              // -----------------------------CART BADGE END--------------------
             ],
           ),
           Container(

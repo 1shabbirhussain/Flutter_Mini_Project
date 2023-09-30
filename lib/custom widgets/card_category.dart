@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mynewproject/Assets/colors.dart';
 import 'package:mynewproject/Assets/dummy_data.dart';
 import 'package:mynewproject/screens/items_view.dart';
@@ -7,8 +8,10 @@ import 'package:mynewproject/screens/sub_categories_view.dart';
 
 class CardCategory extends StatelessWidget {
   final index;
+  final String categoryImage;
 
-  const CardCategory({super.key, required this.index});
+  const CardCategory(
+      {super.key, required this.index, required this.categoryImage});
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +34,10 @@ class CardCategory extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(
-                "images/ImageIcon.png",
-                height: 57,
-                width: 57,
+              SvgPicture.asset(
+                categoryImage,
+                height: 80,
+                width: 80,
               ),
               Column(
                 children: [

@@ -1,7 +1,7 @@
 List<Map<String, dynamic>> dummyData = [
   {
     "category": "Seafood",
-    "categoryImage": "https://example.com/seafood.svg",
+    "categoryImage": "images/seafood.svg",
     "subCategories": [
       {
         "subCategoryName": "Fishes",
@@ -11,12 +11,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Small Fish",
             "itemPrice": "5/kg",
-            "itemImage": "https://example.com/small_fish.svg",
+            "itemImage": "images/smallfish.svg",
           },
           {
             "itemName": "Big Fish",
             "itemPrice": "8/kg",
-            "itemImage": "https://example.com/big_fish.svg",
+            "itemImage": "images/bigfish.svg",
           },
           // Add more items here...
         ],
@@ -29,12 +29,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Medium Shrimp",
             "itemPrice": "15/kg",
-            "itemImage": "https://example.com/medium_shrimp.svg",
+            "itemImage": "images/smallfish.svg",
           },
           {
             "itemName": "Large Shrimp",
             "itemPrice": "20/kg",
-            "itemImage": "https://example.com/large_shrimp.svg",
+            "itemImage": "images/smallfish.svg",
           },
           // Add more items here...
         ],
@@ -44,7 +44,7 @@ List<Map<String, dynamic>> dummyData = [
   },
   {
     "category": "Fruits",
-    "categoryImage": "https://example.com/fruits.svg",
+    "categoryImage": "images/Orange.svg",
     "subCategories": [
       {
         "subCategoryName": "Citrus",
@@ -54,12 +54,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Oranges",
             "itemPrice": "12/kg",
-            "itemImage": "https://example.com/oranges.svg",
+            "itemImage": "images/Orange.svg",
           },
           {
             "itemName": "Lemons",
             "itemPrice": "8/kg",
-            "itemImage": "https://example.com/lemons.svg",
+            "itemImage": "images/Lemon.svg",
           },
           // Add more items here...
         ],
@@ -72,12 +72,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Blueberries",
             "itemPrice": "20/kg",
-            "itemImage": "https://example.com/blueberries.svg",
+            "itemImage": "images/Orange.svg",
           },
           {
             "itemName": "Strawberries",
             "itemPrice": "16/kg",
-            "itemImage": "https://example.com/strawberries.svg",
+            "itemImage": "images/Orange.svg",
           },
           // Add more items here...
         ],
@@ -87,7 +87,7 @@ List<Map<String, dynamic>> dummyData = [
   },
   {
     "category": "Meat",
-    "categoryImage": "https://example.com/meat.svg",
+    "categoryImage": "images/meat.svg",
     "subCategories": [
       {
         "subCategoryName": "Beef",
@@ -97,12 +97,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Ground Beef",
             "itemPrice": "30/kg",
-            "itemImage": "https://example.com/ground_beef.svg",
+            "itemImage": "images/groundedmeat.svg",
           },
           {
             "itemName": "Ribeye Steak",
             "itemPrice": "40/kg",
-            "itemImage": "https://example.com/ribeye_steak.svg",
+            "itemImage": "images/ribeyesteak.svg",
           },
           // Add more items here...
         ],
@@ -115,12 +115,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Chicken Drumsticks",
             "itemPrice": "18/kg",
-            "itemImage": "https://example.com/chicken_drumsticks.svg",
+            "itemImage": "images/groundedmeat.svg",
           },
           {
             "itemName": "Whole Chicken",
             "itemPrice": "12/kg",
-            "itemImage": "https://example.com/whole_chicken.svg",
+            "itemImage": "images/groundedmeat.svg",
           },
           // Add more items here...
         ],
@@ -130,7 +130,7 @@ List<Map<String, dynamic>> dummyData = [
   },
   {
     "category": "Vegetables",
-    "categoryImage": "https://example.com/vegetables.svg",
+    "categoryImage": "images/vegetables.svg",
     "subCategories": [
       {
         "subCategoryName": "Leafy Greens",
@@ -140,12 +140,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Spinach",
             "itemPrice": "10/kg",
-            "itemImage": "https://example.com/spinach.svg",
+            "itemImage": "images/spinach.svg",
           },
           {
             "itemName": "Kale",
             "itemPrice": "12/kg",
-            "itemImage": "https://example.com/kale.svg",
+            "itemImage": "images/kale.svg",
           },
           // Add more items here...
         ],
@@ -158,12 +158,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Carrots",
             "itemPrice": "6/kg",
-            "itemImage": "https://example.com/carrots.svg",
+            "itemImage": "images/spinach.svg",
           },
           {
             "itemName": "Potatoes",
             "itemPrice": "4/kg",
-            "itemImage": "https://example.com/potatoes.svg",
+            "itemImage": "images/spinach.svg",
           },
           // Add more items here...
         ],
@@ -173,7 +173,7 @@ List<Map<String, dynamic>> dummyData = [
   },
   {
     "category": "Dairy",
-    "categoryImage": "https://example.com/dairy.svg",
+    "categoryImage": "images/dairy.svg",
     "subCategories": [
       {
         "subCategoryName": "Milk",
@@ -183,12 +183,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Whole Milk",
             "itemPrice": "3.5/liter",
-            "itemImage": "https://example.com/whole_milk.svg",
+            "itemImage": "images/wholemilk.svg",
           },
           {
             "itemName": "Skim Milk",
             "itemPrice": "3/liter",
-            "itemImage": "https://example.com/skim_milk.svg",
+            "itemImage": "images/skimmilk.svg",
           },
           // Add more items here...
         ],
@@ -201,12 +201,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Cheddar",
             "itemPrice": "20/kg",
-            "itemImage": "https://example.com/cheddar.svg",
+            "itemImage": "images/wholemilk.svg",
           },
           {
             "itemName": "Mozzarella",
             "itemPrice": "22/kg",
-            "itemImage": "https://example.com/mozzarella.svg",
+            "itemImage": "images/wholemilk.svg",
           },
           // Add more items here...
         ],
@@ -216,7 +216,7 @@ List<Map<String, dynamic>> dummyData = [
   },
   {
     "category": "Bakery",
-    "categoryImage": "https://example.com/bakery.svg",
+    "categoryImage": "images/bakery.svg",
     "subCategories": [
       {
         "subCategoryName": "Bread",
@@ -226,12 +226,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "White Bread",
             "itemPrice": "6/loaf",
-            "itemImage": "https://example.com/white_bread.svg",
+            "itemImage": "images/whitebread.svg",
           },
           {
             "itemName": "Whole Wheat Bread",
             "itemPrice": "7/loaf",
-            "itemImage": "https://example.com/whole_wheat_bread.svg",
+            "itemImage": "images/wheatbread.svg",
           },
           // Add more items here...
         ],
@@ -244,12 +244,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Croissant",
             "itemPrice": "15/piece",
-            "itemImage": "https://example.com/croissant.svg",
+            "itemImage": "images/whitebread.svg",
           },
           {
             "itemName": "Danish Pastry",
             "itemPrice": "10/piece",
-            "itemImage": "https://example.com/danish_pastry.svg",
+            "itemImage": "images/whitebread.svg",
           },
           // Add more items here...
         ],
@@ -259,7 +259,7 @@ List<Map<String, dynamic>> dummyData = [
   },
   {
     "category": "Beverages",
-    "categoryImage": "https://example.com/beverages.svg",
+    "categoryImage": "images/beverage.svg",
     "subCategories": [
       {
         "subCategoryName": "Coffee",
@@ -269,12 +269,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Arabica Coffee",
             "itemPrice": "35/kg",
-            "itemImage": "https://example.com/arabica_coffee.svg",
+            "itemImage": "images/coffee.svg",
           },
           {
             "itemName": "Robusta Coffee",
             "itemPrice": "28/kg",
-            "itemImage": "https://example.com/robusta_coffee.svg",
+            "itemImage": "images/coffee2.svg",
           },
           // Add more items here...
         ],
@@ -287,12 +287,12 @@ List<Map<String, dynamic>> dummyData = [
           {
             "itemName": "Green Tea",
             "itemPrice": "25/kg",
-            "itemImage": "https://example.com/green_tea.svg",
+            "itemImage": "images/coffee.svg",
           },
           {
             "itemName": "Black Tea",
             "itemPrice": "18/kg",
-            "itemImage": "https://example.com/black_tea.svg",
+            "itemImage": "images/coffee.svg",
           },
           // Add more items here...
         ],

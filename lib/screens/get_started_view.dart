@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mynewproject/Assets/colors.dart';
-import 'package:mynewproject/custom%20widgets/bottom_navbar_view.dart';
+import 'package:mynewproject/screens/bottom_navbar_view.dart';
 import 'package:mynewproject/custom%20widgets/custom_button.dart';
 import 'package:mynewproject/screens/home_view.dart';
 

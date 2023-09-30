@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
+import 'package:mynewproject/Assets/cart_items.dart';
 import 'package:mynewproject/Assets/colors.dart';
 import 'package:mynewproject/Assets/dummy_data.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:mynewproject/custom%20widgets/card_portrait.dart';
-import 'package:mynewproject/screens/categories_view.dart';
+import 'package:mynewproject/screens/cart_view.dart';
 
 class ItemsView extends StatefulWidget {
   const ItemsView({Key? key});
@@ -63,36 +65,25 @@ class _ItemsViewState extends State<ItemsView>
       }
       return allItems;
     } else {
-      // For other tabs, return items for the specific subcategory
-      String subcategoryName =
-          dummyData[tabIndex]["subCategories"][0]["subCategoryName"];
-      List<Map<String, dynamic>> subCategoriesAndItems = [];
-
-      for (var categoryData in dummyData) {
-        List<Map<String, dynamic>> subCategories =
-            categoryData['subCategories'];
-
-        for (var subCategoryData in subCategories) {
-          String currentSubCategoryName = subCategoryData['subCategoryName'];
-
-          if (currentSubCategoryName == subcategoryName) {
-            List<Map<String, dynamic>> items = subCategoryData['items'];
-
-            for (var itemData in items) {
-              Map<String, dynamic> newItem = {
-                'subCategoryName': currentSubCategoryName,
-                'itemName': itemData['itemName'],
-                'itemPrice': itemData['itemPrice'],
-                'itemImage': itemData['itemImage'],
-              };
-
-              subCategoriesAndItems.add(newItem);
-            }
+      // For other tabs, return items for the specific category and all its subcategories
+      List<Map<String, dynamic>> itemsToShow = [];
+      if (tabIndex >= 0 && tabIndex < dummyData.length) {
+        List<Map<String, dynamic>> categoryData =
+            dummyData[tabIndex]['subCategories'];
+        for (var subCategoryData in categoryData) {
+          List<Map<String, dynamic>> items = subCategoryData['items'];
+          for (var itemData in items) {
+            Map<String, dynamic> newItem = {
+              'subCategoryName': subCategoryData['subCategoryName'],
+              'itemName': itemData['itemName'],
+              'itemPrice': itemData['itemPrice'],
+              'itemImage': itemData['itemImage'],
+            };
+            itemsToShow.add(newItem);
           }
         }
       }
-
-      return subCategoriesAndItems;
+      return itemsToShow;
     }
   }
 
@@ -102,7 +93,7 @@ class _ItemsViewState extends State<ItemsView>
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        crossAxisSpacing: 10,
+        // crossAxisSpacing: ,
         mainAxisSpacing: 20,
       ),
       itemCount: itemsToShow.length,
@@ -113,6 +104,7 @@ class _ItemsViewState extends State<ItemsView>
           itemName: itemData['itemName'],
           itemPrice: itemData['itemPrice'],
           subCategoryName: itemData['subCategoryName'],
+          itemImage: itemData['itemImage'],
         );
       },
     );
@@ -125,26 +117,47 @@ class _ItemsViewState extends State<ItemsView>
         appBar: AppBar(
           shadowColor: MyColors.black1,
           backgroundColor: MyColors.black1,
-          leading: InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return Categories();
-                },
-              ));
-            },
-            child: CircleAvatar(
-              backgroundColor: MyColors.black1,
-              child: Icon(
-                Icons.arrow_back,
-                color: MyColors.black20,
-              ),
-            ),
+          iconTheme: IconThemeData(
+            color: MyColors.black45, // Change this color to your desired color
           ),
           title: Text(
             getTitle(),
             style: TextStyle(color: MyColors.black100),
           ),
+          actions: [
+            // Icon(Icons.ac_unit_outlined)
+            Padding(
+              padding: const EdgeInsets.only(right: 20, top: 20),
+
+              // -----------------------------CART BADGE START--------------------
+
+              child: InkWell(
+                  onTap: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return CartView();
+                        },
+                      ),
+                    );
+                    setState(() {});
+                  },
+                  child: badges.Badge(
+                    badgeStyle: badges.BadgeStyle(
+                      badgeColor: MyColors.yellowD,
+                      padding: EdgeInsets.all(3),
+                    ),
+                    badgeContent: Text("${cartItems.length}"),
+                    child: Icon(
+                      Icons.add_shopping_cart,
+                      color: MyColors.black100,
+                      size: 20,
+                    ),
+                  )),
+              // -----------------------------CART BADGE END--------------------
+            )
+          ],
         ),
         body: Container(
           child: Column(
@@ -191,18 +204,21 @@ class _ItemsViewState extends State<ItemsView>
                 ),
               ),
               Expanded(
-                child: TabBarView(
-                  controller: tabbarcontroller,
-                  children: [
-                    buildGridView(0),
-                    buildGridView(1),
-                    buildGridView(2),
-                    buildGridView(3),
-                    buildGridView(4),
-                    buildGridView(5),
-                    buildGridView(6),
-                    buildGridView(7), // Show all items for the "All" tab
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: TabBarView(
+                    controller: tabbarcontroller,
+                    children: [
+                      buildGridView(0),
+                      buildGridView(1),
+                      buildGridView(2),
+                      buildGridView(3),
+                      buildGridView(4),
+                      buildGridView(5),
+                      buildGridView(6),
+                      buildGridView(7), // Show all items for the "All" tab
+                    ],
+                  ),
                 ),
               ),
             ],

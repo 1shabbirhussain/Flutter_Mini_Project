@@ -5,9 +5,14 @@ import 'package:mynewproject/custom%20widgets/header_home.dart';
 import 'package:mynewproject/custom%20widgets/card_landscape.dart';
 import 'package:mynewproject/custom%20widgets/card_portrait.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,6 +20,9 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           HomePageHeader1(),
+
+          // -----------------Home page body-----------------------
+
           Expanded(
             child: SingleChildScrollView(
               padding: EdgeInsetsDirectional.symmetric(vertical: 25),
@@ -67,12 +75,14 @@ class Home extends StatelessWidget {
                           for (var item in items) {
                             final itemName = item["itemName"];
                             final itemPrice = item["itemPrice"];
+                            final itemImage = item["itemImage"];
 
                             itemCards.add(
                               PortraitCard(
                                 itemName: itemName,
                                 itemPrice: itemPrice,
                                 subCategoryName: subCategoryName,
+                                itemImage: itemImage,
                               ),
                             );
                           }
@@ -112,12 +122,14 @@ class Home extends StatelessWidget {
                           for (var item in items) {
                             final itemName = item["itemName"];
                             final itemPrice = item["itemPrice"];
+                            final itemImage = item["itemImage"];
 
                             itemCards.add(
                               PortraitCard(
                                 itemName: itemName,
                                 itemPrice: itemPrice,
                                 subCategoryName: subCategoryName,
+                                itemImage: itemImage,
                               ),
                             );
                           }
@@ -135,24 +147,6 @@ class Home extends StatelessWidget {
                   const SizedBox(
                     height: 25,
                   ),
-
-                  // Container(
-                  //   height: 194,
-                  //   child: ListView.builder(
-                  //     scrollDirection: Axis.horizontal,
-                  //     itemCount: 5,
-                  //     itemBuilder: (context, index) {
-                  //       return PortraitCard(
-                  //         itemName: dummyData[index]["subCategories"][0]
-                  //             ["items"][0]["itemName"],
-                  //         itemPrice: dummyData[index]["subCategories"][0]
-                  //             ["items"][0]["itemPrice"],
-                  //         subCategoryName: dummyData[index]["subCategories"][0]
-                  //             ["subCategoryName"],
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
                 ],
               ),
             ),

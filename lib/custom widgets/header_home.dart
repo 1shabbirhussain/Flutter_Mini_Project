@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mynewproject/Assets/cart_items.dart';
 import 'package:mynewproject/Assets/colors.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:mynewproject/screens/cart_view.dart';
@@ -11,6 +12,13 @@ class HomePageHeader1 extends StatefulWidget {
 }
 
 class _HomePageHeader1State extends State<HomePageHeader1> {
+  late int itemcount;
+  cartitemlenth() {
+    setState(() {
+      itemcount = cartItems.length;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,9 +39,10 @@ class _HomePageHeader1State extends State<HomePageHeader1> {
                     fontWeight: FontWeight.w600,
                     color: MyColors.black1),
               ),
+              // --------------------------Cart badge Start------------------
               InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
+                onTap: () async {
+                  await Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
                       return CartView();
                     },
@@ -41,8 +50,10 @@ class _HomePageHeader1State extends State<HomePageHeader1> {
                 },
                 child: badges.Badge(
                   badgeStyle: badges.BadgeStyle(
-                      badgeColor: MyColors.yellowD, padding: EdgeInsets.all(3)),
-                  badgeContent: Text("2"),
+                    badgeColor: MyColors.yellowD,
+                    padding: EdgeInsets.all(3),
+                  ),
+                  badgeContent: Text(itemcount.toString()),
                   child: Icon(
                     Icons.add_shopping_cart,
                     color: MyColors.black1,
@@ -50,6 +61,8 @@ class _HomePageHeader1State extends State<HomePageHeader1> {
                   ),
                 ),
               )
+
+              // -----------------------Cart Badge End -----------------
             ],
           ),
           Container(

@@ -68,8 +68,7 @@ class _SubCategoryCardsState extends State<SubCategoryCards> {
                   SizedBox(
                     height: 10,
                   ),
-                  Text(widget.category,
-                      style: TextStyle(fontSize: 12)),
+                  Text(widget.category, style: TextStyle(fontSize: 12)),
                   SizedBox(
                     height: 50,
                   ),

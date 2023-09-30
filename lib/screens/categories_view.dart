@@ -46,6 +46,7 @@ class _CategoriesState extends State<Categories> {
                     itemBuilder: (context, index) {
                       return CardCategory(
                         index: index,
+                        categoryImage: dummyData[index]["categoryImage"],
                       );
                     },
                   )))

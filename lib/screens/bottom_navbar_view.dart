@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mynewproject/screens/HomePageAll.dart';
 import 'package:mynewproject/screens/categories_view.dart';
+import 'package:mynewproject/screens/wishlist_view.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 import 'package:mynewproject/screens/home_view.dart';
 
@@ -36,16 +38,9 @@ class _NavbarViewState extends State<NavbarView> {
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
           children: <Widget>[
-            Home(),
+            HomePageAll(),
             Categories(),
-            Container(
-              alignment: Alignment.center,
-              child: Icon(
-                Icons.email_rounded,
-                size: 56,
-                color: Colors.green[400],
-              ),
-            ),
+            WishList(),
             Container(
               alignment: Alignment.center,
               child: Icon(
