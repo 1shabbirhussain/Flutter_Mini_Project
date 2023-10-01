@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mynewproject/Assets/cart_items.dart';
 import 'package:mynewproject/Assets/colors.dart';
 import 'package:mynewproject/custom%20widgets/custom_button.dart';
+import 'package:mynewproject/screens/check_out.view.dart';
 
 class CartView extends StatefulWidget {
   const CartView({super.key});
@@ -12,6 +14,15 @@ class CartView extends StatefulWidget {
 }
 
 class _CartViewState extends State<CartView> {
+  double delivery() {
+    double deliveryCost = 0.0;
+    if (cartItems.isNotEmpty) {
+      deliveryCost = 2.00; // Set the delivery cost when the cart is not empty
+    }
+    return deliveryCost;
+  }
+
+  // -----------------------------------------------total cost calculator--------------------
   double calculateTotalCost() {
     double totalCost = 0.0;
     for (var item in cartItems) {
@@ -20,21 +31,35 @@ class _CartViewState extends State<CartView> {
     }
     return totalCost;
   }
+  // -----------------------------------------------total cost calculator--------------------
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-              shadowColor: MyColors.blueL,
-              backgroundColor: MyColors.blueL,
-              title: Text("Product cart"),
+              shadowColor: MyColors.black10,
+              backgroundColor: MyColors.black1,
+              title: Text(
+                "Product cart (${cartItems.length})",
+                style: TextStyle(color: MyColors.black100),
+              ),
             ),
             // --------------------condition to chekc if cart is empty-----
             body: Column(
               children: [
                 cartItems.isEmpty
-                    ? Text("Your Cart is Empty")
+                    // --------------------------------when cart is empty START-------------------------
+                    ? Expanded(
+                        child: Column(
+                        children: [
+                          Lottie.network(
+                              "https://lottie.host/02db1944-078a-489c-853d-173c1aa8f193/tfG5Fzv5or.json"),
+                          Text("Your Cart is Empty"),
+                        ],
+                      ))
+                    // --------------------------------when cart is empty END-------------------------
+                    // --------------------------------when cart is NOT empty Start-------------------------
                     : Expanded(
                         child: ListView.builder(
                           itemCount: cartItems.length,
@@ -131,6 +156,8 @@ class _CartViewState extends State<CartView> {
                           },
                         ),
                       ),
+                // --------------------------------when cart is NOT empty END-------------------------
+                // ---------------------------------------Bottom Total cost container START--------------------------------
                 Container(
                   height: 200,
                   padding: EdgeInsets.all(20),
@@ -167,7 +194,7 @@ class _CartViewState extends State<CartView> {
                                 fontWeight: FontWeight.w400,
                                 color: MyColors.black60),
                           ),
-                          Text("\$ ${2.00}")
+                          Text("\$ ${delivery()}")
                         ],
                       ),
                       Row(
@@ -180,13 +207,28 @@ class _CartViewState extends State<CartView> {
                                 fontWeight: FontWeight.w400,
                                 color: MyColors.black60),
                           ),
-                          Text("\$ ${calculateTotalCost() + 2.00}")
+                          Text("\$ ${calculateTotalCost() + delivery()}")
                         ],
                       ),
                       Container(
                         child: CustomButton(
-                            onPressed: () {},
-                            buttonBackground: MyColors.blueD,
+                            onPressed: () {
+                              cartItems.isEmpty
+                                  ? setState(() {
+                                      final snackBar = SnackBar(
+                                        content: Text('Cart is Empty'),
+                                        duration: Duration(seconds: 2),
+                                      );
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(snackBar);
+                                    })
+                                  : Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) {
+                                        return CheckOut();
+                                      },
+                                    ));
+                            },
+                            buttonBackground: MyColors.blueL,
                             borderRadius: BorderRadius.circular(20),
                             width: 320,
                             height: 56,
@@ -201,6 +243,7 @@ class _CartViewState extends State<CartView> {
                     ],
                   ),
                 )
+                // ---------------------------------------Bottom Total cost container END--------------------------------
               ],
             )));
   }

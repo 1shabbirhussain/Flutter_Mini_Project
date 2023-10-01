@@ -5,6 +5,7 @@ import 'package:mynewproject/screens/bottom_navbar_view.dart';
 import 'package:mynewproject/firebase_options.dart';
 import 'package:mynewproject/screens/HomePageAll.dart';
 import 'package:mynewproject/screens/cart_view.dart';
+import 'package:mynewproject/screens/check_out.view.dart';
 import 'package:mynewproject/screens/items_view.dart';
 import 'package:mynewproject/screens/splash_view.dart';
 
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: SplashScreen(),
+      home: SplashScreen(),
       // home: Home(),
-      home: NavbarView(),
+      // home: NavbarView(),
       // home: CartView(),
+      // home: CheckOut(),
       // home: ItemsView(),
       // home: HomePageAll(),
       // home:Categories2() ,
